@@ -132,6 +132,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  color: #810008;
+}
+.accordion-info-flex .ia-link:hover {
+  color: #CF0013;
 }
 
 /* ── Our Partners ── */
