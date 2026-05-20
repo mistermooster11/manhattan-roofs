@@ -1,0 +1,105 @@
+/* ══════════════════════════════════════════════════════════
+   General FAQs page styles
+   Root font-size: 62.5% → 1rem = 10px
+   ══════════════════════════════════════════════════════════ */
+
+/* ── 1. Hero Org (dark header banner) ── */
+.hero-org { position: relative; z-index: 21; padding-bottom: 1px; }
+.hero-org.flex-module { margin-bottom: 5rem; }
+.hero-org__top { position: relative; padding: 3.5rem 0; margin-bottom: 3rem; }
+
+/* ── 2. Accordion Module wrapper ── */
+.accordion-module { padding: 7rem 0; }
+.accordion-module.flex-module { padding-bottom: 0; }
+
+/* ── 3. Accordion wrap ── */
+.accordion-wrap-flex { margin-top: 4rem; }
+
+/* ── 4. Accordion item ── */
+.accordion-item-flex {
+  padding: 0;
+  background: rgba(242,242,242,.4);
+}
+.accordion-item-flex:nth-child(odd) {
+  background: rgba(242,242,242,.4);
+  border: none;
+}
+.accordion-item-flex:nth-child(even) {
+  background: #fff;
+  border-top: 1px solid rgba(165,165,165,.4);
+  border-bottom: 1px solid rgba(165,165,165,.4);
+}
+
+/* ── 5. Accordion title ── */
+.accordion-title-flex {
+  padding: 3rem 7rem 3rem 6.5rem;
+  position: relative;
+  display: block;
+  color: #172535;
+  cursor: pointer;
+  transition: color .35s;
+}
+.accordion-title-flex i {
+  position: absolute;
+  top: 50%;
+  right: 6rem;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #fd6a3c;
+  transition: transform .35s;
+}
+.accordion-title-flex.current { color: #3f5e9d; }
+.accordion-title-flex.current i { transform: translate(-50%, -50%) scaleY(-1); }
+
+/* ── 6. Accordion info (collapsible) ── */
+.accordion-info-flex {
+  padding: 0 6.5rem 3rem;
+  display: none;
+}
+.accordion-info-flex.open { display: block; }
+.accordion-info-flex .content-entry { padding-top: 0; }
+
+/* ── 7. Table inside accordion ── */
+.accordion-info-flex table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+.accordion-info-flex table th,
+.accordion-info-flex table td {
+  border: 1px solid rgba(165,165,165,.5);
+  padding: 0.8rem 1.2rem;
+  vertical-align: middle;
+}
+.accordion-info-flex table thead th {
+  background: #172535;
+  color: #fff;
+  font-weight: 600;
+}
+.accordion-info-flex table tbody tr:nth-child(even) td {
+  background: rgba(242,242,242,.5);
+}
+
+/* ── 8. Contact Us section (ia-bg-sky) ── */
+.faq-contact { padding: 8rem 0 6rem; position: relative; z-index: 2; }
+.faq-contact .sub-heading { margin-bottom: 1rem; }
+.faq-contact h2 { margin-bottom: 3rem; }
+.faq-contact__in { display: flex; flex-wrap: wrap; align-items: flex-start; }
+.faq-contact__in .content-entry { width: 51%; margin-right: 12%; }
+.faq-contact__btn-wrap { width: 37%; display: flex; align-items: center; padding-top: 1rem; }
+
+/* ── 9. Responsive ── */
+@media (max-width: 1023px) {
+  .accordion-module { padding: 4rem 0; }
+}
+
+@media (max-width: 767px) {
+  .accordion-title-flex { padding: 1.5rem 3rem 1.5rem 2rem; }
+  .accordion-title-flex i { right: 0; font-size: 1.4rem; }
+  .accordion-info-flex { padding: 1rem 2rem 2rem; }
+  .faq-contact { padding: 4rem 0 3.2rem; }
+  .faq-contact__in { display: block; }
+  .faq-contact__in .content-entry { width: auto; margin-right: 0; }
+  .faq-contact__btn-wrap { width: auto; padding-top: 2rem; }
+}

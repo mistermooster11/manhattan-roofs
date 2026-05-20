@@ -1,0 +1,157 @@
+/* ============================================================
+   Contact / WFD Team page
+   Shared with other "flexible page" templates
+   ============================================================ */
+
+/* ── Breadcrumbs ── */
+.breadcrumbs {
+  opacity: 0.7; font-size: 1.1rem; line-height: 1.4; margin-bottom: 2rem;
+}
+.breadcrumbs > span { margin: 0 0 5px; display: inline-block; }
+.breadcrumbs > em   { margin: 0 5px; display: inline-block; font-style: normal; }
+.breadcrumbs a {
+  color: #a1c5d3; border-bottom: 1px solid #a1c5d3; transition: opacity .35s;
+  text-decoration: none;
+}
+.breadcrumbs a:hover { opacity: 0.7; }
+/* on dark bg the breadcrumbs are opaque white */
+.ia-bg-dark .breadcrumbs { opacity: 1; }
+.ia-bg-dark .breadcrumbs a { color: #a1c5d3; border-color: #a1c5d3; }
+
+/* ── Sub heading ── */
+.sub-heading {
+  font-size: 1.5rem; line-height: 1.2; font-weight: 300;
+  color: #172535; margin-bottom: 1.5rem;
+}
+.ia-bg-dark .sub-heading { color: #fff; }
+
+/* ── Hero Org ── */
+.hero-or  { position: relative; z-index: 21; padding-bottom: 1px; }
+.hero-org { position: relative; z-index: 21; padding-bottom: 1px; }
+
+.hero-org__top {
+  position: relative; padding: 3.5rem 0; margin-bottom: 3rem;
+}
+.hero-org__bottom { padding: 2.5rem 0; }
+.hero-org__bottom.flex-module { padding: 0; }
+
+/* Left text column */
+.hero-org__left {
+  float: left; width: calc(100% - 350px); max-width: 660px;
+}
+/* Right sidebar (quick links) */
+.hero-org__right { width: 300px; float: right; }
+
+.hero-org .content-entry { max-width: 770px; }
+
+/* ia-margin-0 */
+.ia-margin-0 { margin-bottom: 0 !important; }
+
+/* Quick links list */
+.quick-links { list-style: none; margin-left: 0; padding: 0; }
+.quick-links li { font-size: 1.4rem; line-height: 1.28; color: #172535; margin-bottom: 1.5rem; }
+
+/* ── User Grid ── */
+.user-grid-small .inner {
+  padding-top: 5rem; border-top: 1px dashed #a5a5a5;
+}
+.user-grid-small.exclude-line .inner { border-top: none; padding-top: 0; }
+
+.user-grid-list {
+  display: flex; flex-wrap: wrap; padding-top: 2rem;
+}
+
+/* Default: 2-col */
+.user-grid-item {
+  width: 45%; margin-right: 10%; position: relative; margin-top: 4rem;
+}
+.user-grid-item:nth-child(1),
+.user-grid-item:nth-child(2) { margin-top: 0; }
+.user-grid-item:nth-child(2n+2) { margin-right: 0; }
+
+/* 3-col variant */
+.user-grid-item--three {
+  width: 28%; margin-right: 8%; margin-top: 4rem;
+  position: relative; box-sizing: border-box;
+}
+.user-grid-item--three:nth-child(1),
+.user-grid-item--three:nth-child(2),
+.user-grid-item--three:nth-child(3) { margin-top: 0; }
+.user-grid-item--three:nth-child(2n+2) { margin-right: 8%; }
+.user-grid-item--three:nth-child(3n+3) { margin-right: 0; }
+
+/* Photo block */
+.user-grid-item-photo {
+  width: 10rem; float: left; position: relative; margin-right: 3rem;
+}
+.user-grid-item-photo div { width: 100%; padding-bottom: 125%; }
+/* Orange left accent bar */
+.user-grid-item-photo::before {
+  content: ""; position: absolute; left: 0; top: 0;
+  height: 100%; width: 7px; background: #fd6a3c;
+}
+
+/* Info block */
+.user-grid-item-info { margin-left: 13rem; }
+.user-grid-item-label { font-weight: 500; font-size: 1rem; letter-spacing: .15rem; opacity: .7; }
+.user-grid-item-phone { opacity: 0.7; }
+.user-grid-item-states { font-size: 1.2rem; }
+
+/* Email button */
+.user-grid-item-mail {
+  width: 2.4rem; height: 2.4rem; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  position: relative; transition: background .35s; text-decoration: none;
+}
+.user-grid-item-mail i {
+  font-size: 1.1rem; transition: color .35s;
+}
+.user-grid-item-mail.ia-bg-soft { background: #f2f2f2; }
+.user-grid-item-mail.ia-bg-soft:hover { background: #172535 !important; }
+.user-grid-item-mail.ia-bg-soft:hover i { color: #fff !important; }
+
+/* For --three variant the photo is positioned the same but photo dims change */
+.user-grid-item--three .user-grid-item-photo { width: 10rem; }
+
+/* ── Content block flex (form section) ── */
+.content-block-flex { display: flex; justify-content: space-between; }
+.content-block-head { margin-bottom: 3rem; }
+.content-block-head.wide { width: 100%; }
+.content-block-in  { }
+.content-block-in.wide { width: 100%; }
+.content-block-text { box-sizing: border-box; }
+.content-block-text.full-width { width: 100%; }
+
+/* Section spacing helpers */
+.flex-module { padding: 7rem 0; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-org__left { max-width: 100%; width: calc(100% - 300px); }
+}
+
+@media (max-width: 767px) {
+  .hero-org__top  { display: block; }
+  .hero-org__left { float: none; width: auto; max-width: 100%; margin-bottom: 3rem; }
+  .hero-org__right { width: auto; float: none; }
+  .hero-org__bottom { padding: 0 0 2.5rem; }
+
+  .user-grid-item--three {
+    width: calc(50% - 2rem); margin-right: 4%;
+  }
+  .user-grid-item--three:nth-child(3) { margin-top: 4rem; }
+  .user-grid-item--three:nth-child(3n+3) { margin-right: 4%; }
+  .user-grid-item--three:nth-child(2n+2) { margin-right: 0; }
+
+  .flex-module { padding: 4rem 0; }
+}
+
+@media (max-width: 500px) {
+  .user-grid-item--three {
+    width: 100%; margin-right: 0 !important; margin-top: 3rem;
+  }
+  .user-grid-item--three:nth-child(1),
+  .user-grid-item--three:nth-child(2),
+  .user-grid-item--three:nth-child(3) { margin-top: 3rem; }
+  .user-grid-item--three:first-child { margin-top: 0; }
+}

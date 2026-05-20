@@ -1,0 +1,1046 @@
+/* ============================================================
+   Homepage / Layout Utilities
+   Tách từ globals.css để dễ custom từng trang
+   ============================================================ */
+
+/* --- Container helpers --- */
+.inner {
+  max-width: 1344px;
+  width: 100%;
+  padding: 0 3rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.inner--slim-1172 {
+  max-width: 1172px;
+  width: 100%;
+  padding: 0 3rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.inner--slim-1162 {
+  max-width: 1162px;
+  width: 100%;
+  padding: 0 3rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* --- Header layout --- */
+.inner-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.inner-main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- Accessibility --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- Typography scale --- */
+.h1 { font-size: 5.2rem; font-weight: 600; line-height: 1.1; }
+.h2 { font-size: 4.2rem; font-weight: 600; line-height: 1.1; }
+.h3 { font-size: 3.2rem; font-weight: 600; line-height: 1.15; }
+.h4 { font-size: 2.4rem; font-weight: 600; line-height: 1.2; }
+.h5 { font-size: 1.8rem; font-weight: 600; line-height: 1.3; }
+.h6 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
+
+.sub-heading {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: var(--c-orange);
+  margin-bottom: 1rem;
+  display: block;
+}
+.sub-heading__white { color: var(--c-sky); }
+
+/* --- Background / color utilities --- */
+.ia-bg-dark   { background-color: var(--c-navy); }
+.ia-bg-sky    { background-color: var(--c-sky); }
+.ia-bg-orange { background-color: var(--c-orange); }
+.ia-bg-white  { background-color: #fff; }
+.ia-bg-gray   { background-color: var(--c-gray); }
+.ia-white     { color: #fff; }
+.ia-sky       { color: var(--c-sky); }
+.ia-orange    { color: var(--c-orange); }
+.ia-dark      { color: var(--c-navy); }
+
+/* --- Button component --- */
+/* ============================================================
+   .ia-btn  — copy chính xác từ main.css gốc của nccer.org
+   JS gốc append: em.ia-b-1/2/3/4 vào mỗi .ia-btn
+   WOW.js trigger: [style*=visible] → ta dùng .is-visible thay thế
+   ============================================================ */
+.ia-btn {
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-align: center;
+  color: #172535;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.35s;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Border elements — default: fully visible (non-wow buttons always show borders) */
+.ia-btn .ia-b {
+  position: absolute;
+  background: #172535;
+  z-index: 6;
+  transition: background-color 0.35s;
+}
+.ia-btn .ia-b-1 { top: 0; left: 0; height: 1px; width: 100%; }
+.ia-btn .ia-b-2 { top: 0; right: 0; height: 100%; width: 1px; }
+.ia-btn .ia-b-3 { bottom: 0; right: 0; height: 1px; width: 100%; }
+
+/* Left bar pseudo-element */
+.ia-btn::before {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 100%;
+  width: 0.6rem;
+  background: #172535;
+  transition: background 0.35s 0.1s;
+  z-index: 7;
+}
+
+/* Text span */
+.ia-btn span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding: 1.3rem 2rem;
+}
+.ia-btn span em, .ia-btn span i { vertical-align: middle; }
+.ia-btn span em:first-child, .ia-btn span i:first-child { margin-right: 5px; }
+.ia-btn span em:last-child,  .ia-btn span i:last-child  { margin-left: 5px; }
+
+/* Hover bg overlay slides up */
+.ia-btn::after {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: auto; right: 0;
+  height: 0;
+  background: #172535;
+  transition: height 0.2s;
+}
+.ia-btn:hover              { color: #fff; }
+.ia-btn:hover::before      { background: #fd6a3c; }
+.ia-btn:hover::after       { top: auto; bottom: 0; height: 100%; transition: height 0.35s; }
+
+/* Secondary — larger */
+.ia-btn--secondary { font-size: 1.5rem; font-weight: 600; line-height: 1.5; min-width: 160px; }
+.ia-btn--secondary span { padding: 2rem; }
+
+/* Dark variant */
+.ia-btn--dark { color: #fff; background: #172535; }
+.ia-btn--dark .ia-b,
+.ia-btn--dark::before { background: #fd6a3c; }
+.ia-btn--dark::after  { background: #fff; }
+.ia-btn--dark:hover   { color: #172535; }
+
+/* ============================================================
+   WOW animation: border elements start at 0, draw clockwise
+   top(ia-b-1) → right(ia-b-2) → bottom(ia-b-3) → left(::before)
+   text(span) fades + slides up
+   Trigger: .is-visible  (replaces WOW.js [style*=visible])
+   ============================================================ */
+.ia-btn.wow span {
+  opacity: 0;
+  transform: translate(0, 50%);
+  transition: transform 0.35s 0.2s linear, opacity 0.35s 0.2s;
+}
+.ia-btn.wow .ia-b-1  { width: 0;  transition: width 0.3s; }
+.ia-btn.wow .ia-b-2  { height: 0; transition: height 0.3s 0.3s linear; }
+.ia-btn.wow .ia-b-3  { width: 0;  transition: width 0.3s 0.6s linear; }
+.ia-btn.wow::before  { height: 0; transition: height 0.3s 0.9s linear, background 0.35s 0s; }
+
+/* Triggered — IntersectionObserver adds .is-visible */
+.ia-btn.is-visible span                    { opacity: 1; transform: translate(0, 0); }
+.ia-btn.is-visible .ia-b-1,
+.ia-btn.is-visible .ia-b-3                 { width: 100%; }
+.ia-btn.is-visible .ia-b-2,
+.ia-btn.is-visible::before                 { height: 100%; }
+
+/* --- Link component --- */
+.ia-link {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--c-navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: color 0.3s;
+}
+.ia-link span { border-bottom: 1px solid currentColor; }
+.ia-link:hover span { border-bottom-color: var(--c-orange); }
+.ia-link--arrow i { 
+    color: var(--c-orange); 
+    font-size: 1.2rem;
+}
+.ia-link--white { color: #fff; }
+
+/* --- Category label --- */
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--c-orange);
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+/* --- Rich content entries --- */
+.content-entry p { margin-bottom: 1.5rem; line-height: 1.6; }
+.content-entry p:last-child { margin-bottom: 0; }
+.content-entry a { color: var(--c-orange); border-bottom: 1px solid var(--c-orange); }
+.content-entry b, .content-entry strong { font-weight: 600; }
+
+/* --- Research decorative lines --- */
+.ia-line {
+  position: absolute;
+  background: var(--c-orange);
+}
+.ia-line-1 { top: 0; left: 0; width: 1px; height: 40%; }
+.ia-line-2 { top: 0; left: 0; width: 25%; height: 1px; }
+.ia-line-3 { bottom: 0; right: 0; width: 1px; height: 40%; }
+.ia-line-4 { bottom: 0; right: 0; width: 25%; height: 1px; }
+
+/* ============================================================
+   Vape — image reveal animation
+   Structure: <div class="vape"> <div class="vape-el" style="background:url(...)"> <em/> </div> </div>
+   - ::before  : navy overlay height 100% → 0  (slides down, reveals image)
+   - .vape-el  : image scale(1.2) → scale(1)   (subtle zoom-out)
+   ============================================================ */
+.vape {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Mobile: bỏ clip-path, ảnh chiếm toàn bộ chiều rộng */
+@media (max-width: 767px) {
+  .vape {
+    clip-path: none !important;
+    width: 100vw;
+    margin-left: calc(-1 * var(--page-padding, 5%));
+  }
+  .vape-cut {
+    display: none;
+  }
+}
+
+.vape-el {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.2);
+  transition: transform 1.2s linear;
+  z-index: 4;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.vape::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  height: 100%;
+  background: #172535;
+  transition: height 1s;
+  z-index: 5;
+}
+
+/* Triggered via IntersectionObserver adding .is-visible */
+.vape.is-visible::before  { height: 0; }
+.vape.is-visible .vape-el { transform: scale(1); }
+
+/* Triangle cut — hiển thị trên md trở lên */
+.vape-cut {
+  position: absolute;
+  z-index: 6;
+  background: #fff;
+  width: 34%;
+  height: 45%;
+}
+
+/* Góc trên-phải */
+.vape-cut--tr {
+  top: 0;
+  right: 0;
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+
+
+
+/* ============================================================
+   Difference — image wrapper with triangle cut
+   ============================================================ */
+.front-difference__image {
+  width: 100%;
+  padding-bottom: 68%;
+  position: relative;
+}
+
+/* SVG decorative (span) — positioned relative to image */
+.front-difference__image > span {
+  position: absolute;
+  bottom: 62%;
+  left: 79%;
+  z-index: 5;
+}
+
+/* .vape wrapper fills the image box — dùng .front-difference__image .vape
+   để có specificity cao hơn rule .vape { position: relative } bên trên */
+.front-difference__image > div,
+.front-difference__image .vape {
+  position: absolute !important;
+  left: 0; top: -1px; right: -2px; bottom: 0;
+  overflow: hidden;
+}
+
+/* craft-catalog.css defines .vape .vape-el { position: relative } which overrides
+   the absolute positioning needed here — force it back to absolute */
+.front-difference__image .vape .vape-el {
+  position: absolute !important;
+  inset: 0;
+}
+
+/* .vape-el (background image div) fills fully */
+.front-difference__image > div > div {
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+}
+
+/* em = white triangle overlay — top-right corner */
+.front-difference__image > div em {
+  width: 34%;
+  height: 45%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  display: block;
+}
+
+/* Rotated white rectangle creates the diagonal triangle cut */
+.front-difference__image > div em::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-48deg);
+  background: #fff;
+  transform-origin: 20% -10%;
+}
+
+/* ============================================================
+   Announcements section
+   ============================================================ */
+.front-announcements {
+  padding: 4rem 0;
+}
+
+.front-announcements__inner h3 {
+  margin-bottom: 3rem;
+}
+
+.front-announcements__content {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1000px;
+  margin-left: -11%;
+}
+
+.front-announcements__image {
+  width: 32%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.front-announcements__image > div {
+  width: 100%;
+  position: relative;
+  padding-bottom: 75%;
+}
+
+/* Background-image span */
+.front-announcements__image > div > span {
+  display: block;
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 100%; width: 100%;
+  transform: scale(1.3);
+  transition: transform 2s;
+}
+
+/* White cover overlay (animates away on reveal) */
+.front-announcements__image > div > span::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%; width: 100%;
+  background: #fff;
+  transition: height 1s;
+  z-index: 1;
+}
+
+/* Visible / revealed state */
+.front-announcements__image.is-visible > div > span {
+  transform: scale(1);
+}
+.front-announcements__image.is-visible > div > span::before {
+  height: 0;
+}
+
+.front-announcements__text {
+  width: 62%;
+  margin-left: 6%;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 990px) {
+  .front-announcements__content {
+    margin-left: -3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .front-announcements {
+    padding: 2rem 0 3rem;
+  }
+  .front-announcements__content {
+    padding: 0;
+    margin-left: -6%;
+    align-items: flex-start;
+  }
+  .front-announcements__inner {
+    padding-left: 2.5rem;
+  }
+}
+
+/* ============================================================
+   Responsive overrides
+   ============================================================ */
+@media (max-width: 767px) {
+  .inner,
+  .inner--slim-1172 { padding: 0 5%; }
+  .h1 { font-size: 3.8rem; }
+  .h2 { font-size: 3rem; }
+  .h3 { font-size: 2.4rem; }
+}
+
+/* ============================================================
+   Insights — front-insights
+   ============================================================ */
+.front-insights { padding: 5rem 0 0; margin-top: 5rem; position: relative; z-index: 2; border-bottom: 1px solid rgba(161,197,211,.3); }
+.front-insights__inner { display: flex; flex-direction: column; width: 100%; }
+.front-insights__head { padding-bottom: 6rem; }
+.front-insights__in { background: #fff; position: relative; }
+.front-insights__in::before { content: ""; position: absolute; right: 0; width: 100vw; top: 0; bottom: 0; background: #fff; z-index: -1; pointer-events: none; }
+.front-insights__left { width: calc(50% - 3.4rem); float: left; position: relative; z-index: 6; }
+.front-insights__right { width: calc(50% + 3.4rem); float: left; margin-top: -10rem; z-index: 4; position: relative; }
+.front-insights__accordion { background: #fff; position: relative; padding: 8rem 8rem 8rem 0; }
+.front-insights__accordion::after { content: ""; position: absolute; right: -1px; top: 0; height: 0; width: 2px; background: var(--c-orange); transition: height 1s .5s; }
+.front-insights__accordion.is-visible::after { height: calc(100% - 8rem); }
+
+/* ============================================================
+   Accordion items
+   ============================================================ */
+.accordion { position: relative; }
+.accordion-item { border-bottom: 1px dashed #a5a5a5; position: relative; }
+.accordion-item-in { overflow: hidden; position: relative; }
+.accordion-item-in::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  bottom: 0;
+  width: 7px;
+  background: var(--c-orange);
+  opacity: 0;
+  transform: rotate(90deg);
+  transform-origin: left bottom;
+  transition: opacity .8s, transform .8s;
+}
+.accordion-item.opened .accordion-item-in::before { opacity: 1; transform: rotate(0); }
+.accordion-item.opened .accordion-item__title { color: var(--c-blue); }
+.accordion-item.opened .accordion-item__title i { transform: translate(0, -50%) scaleY(-1); }
+.accordion-item.opened .accordion-item__door { opacity: 1; transform: rotate(0); }
+
+.accordion-item__door {
+  position: absolute;
+  top: 0;
+  left: 7px;
+  height: 100%;
+  opacity: 0;
+  transform: rotate(90deg);
+  transform-origin: left bottom;
+  transition: opacity .8s, transform .8s;
+  pointer-events: none;
+}
+.accordion-item__door svg { 
+  height: 100%; 
+  width: auto; 
+}
+
+/* Dec arrow, mũi tên trượt vào tab đang active */
+.accordion-item__dec {
+  position: absolute;
+  right: -0.1rem;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-left: 3px solid var(--c-orange);
+  border-bottom: 3px solid var(--c-orange);
+  background: #fff;
+  transform: rotate(45deg) translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: top 0.4s ease, opacity 0.3s ease;
+  z-index: 10;
+}
+
+.accordion-item__title {
+  padding: 2rem 6rem 2rem 3rem;
+  position: relative;
+  cursor: pointer;
+  color: var(--c-navy);
+  transition: color .35s;
+}
+.accordion-item__title i {
+  position: absolute;
+  top: 50%;
+  right: 3rem;
+  transform: translate(0, -50%);
+  font-size: 1.6rem;
+  color: var(--c-orange);
+  transition: transform .3s;
+}
+
+.accordion-item__desc { padding: 0 6.8rem 3rem 6.8rem; margin-top: -2rem; }
+.accordion-item__link { margin-bottom: .8rem; }
+
+/* ============================================================
+   Accordion data (right panel)
+   ============================================================ */
+.accordion-data { display: none; position: relative; z-index: 3; }
+.accordion-data.opened { display: block; }
+
+/* Image */
+.accordion-image { width: calc(100% + 5rem); padding-bottom: 100%; margin-left: 5rem; position: relative; margin-top: -50%; pointer-events: none; }
+.accordion-image div { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; }
+
+.vape-img { height: 100%; transition: transform 1.2s .5s; transform: scale(1.2); }
+.accordion-data.opened .vape-img { transform: scale(1); }
+
+/* Info */
+.accordion-info { width: 100%; box-sizing: border-box; padding: 5rem; }
+.accordion-info .content-entry { max-width: 380px; transform: translate(0, 5rem); transition: transform .8s .1s, opacity .8s .1s; opacity: 0; }
+.accordion-info .content-entry p { font-size: 1.4rem; }
+.accordion-data.opened .accordion-info .content-entry { transform: translate(0, 0); opacity: 1; }
+
+/* ia-btn inside accordion-info:
+   Dùng animation thay transition vì display:none→block + .opened cùng 1 frame
+   → transition bị bỏ qua, animation thì không */
+.accordion-info .ia-btn { transform: translate(0, 8rem); transition: transform .8s .2s; }
+.accordion-info .ia-btn span { opacity: 0; transform: translate(0, 50%); }
+.accordion-info .ia-btn .ia-b-1 { width: 0; }
+.accordion-info .ia-btn .ia-b-2 { height: 0; }
+.accordion-info .ia-btn .ia-b-3 { width: 0; }
+.accordion-info .ia-btn::before { height: 0; transition: background .35s 0s; }
+
+.accordion-data.opened .accordion-info .ia-btn { transform: translate(0, 0); }
+.accordion-data.opened .accordion-info .ia-btn span { animation: ia-text-in .35s .2s forwards; }
+.accordion-data.opened .accordion-info .ia-btn .ia-b-1 { animation: ia-border-h .3s 0s forwards; }
+.accordion-data.opened .accordion-info .ia-btn .ia-b-2 { animation: ia-border-v .3s .3s forwards; }
+.accordion-data.opened .accordion-info .ia-btn .ia-b-3 { animation: ia-border-h .3s .6s forwards; }
+.accordion-data.opened .accordion-info .ia-btn::before { animation: ia-border-v .3s .9s forwards; }
+
+@keyframes ia-border-h { from { width: 0; } to { width: 100%; } }
+@keyframes ia-border-v { from { height: 0; } to { height: 100%; } }
+@keyframes ia-text-in {
+  from { opacity: 0; transform: translate(0, 50%); }
+  to   { opacity: 1; transform: translate(0, 0); }
+}
+
+/* mob-version: hidden on desktop, shown on mobile */
+.mob-version { display: none; }
+
+/* ============================================================
+   Insights responsive
+   ============================================================ */
+@media (max-width: 767px) {
+  .front-insights { margin-top: 0; padding: 5rem 0; border-bottom: 1px solid rgba(161,197,211,.3); }
+  .front-insights__head { padding-right: 0; padding-bottom: 2rem; }
+  .front-insights__left { width: auto; float: none; }
+  .front-insights__right { display: none; }
+  .front-insights__accordion { padding: 0; }
+  .front-insights__accordion::after { display: none; }
+  .accordion-item__dec { display: none; }
+  /* .accordion-item__door { display: none; } */
+  .accordion-item__title { padding: 2rem 6rem 2rem 2.5rem; }
+  .accordion-item__desc { padding: 0 2.5rem 2.5rem; margin-top: 0; }
+  .mob-version { display: block; margin-top: 2rem; }
+}
+
+/* ============================================================
+   Testimonial
+   ============================================================ */
+.front-testimonial { padding: 7rem 0; position: relative; z-index: 2; }
+.front-testimonial__list { display: flex; flex-wrap: wrap; padding-top: 6.5rem; }
+
+/* story-item — shared base */
+.story-item { width: 31.3%; margin-left: 3%; display: inline-block; vertical-align: top; padding-top: 3.3rem; position: relative; }
+.story-item:nth-child(3n+1) { margin-left: 0; }
+
+/* Orange top border — draws in with wow */
+.story-item::before { content: ""; position: absolute; left: 0; background: #fd6a3c; width: 100%; height: 1px; top: 0; transition: width .8s; }
+.story-item.wow::before { width: 0; }
+.story-item.wow.is-visible::before { width: 100%; }
+
+/* story-video */
+.story-video { position: relative; padding-top: 0 !important; }
+.story-video::before { display: none; }
+
+/* Video wrapper — aspect ratio 156% */
+.story-video__bg { position: relative; width: 100%; padding-bottom: 156%; }
+.story-video__bg-div { position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; }
+
+/* Gradient overlay via ::after */
+.story-video__bg-div::after {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; right: 0;
+  background: linear-gradient(0deg, rgba(23,37,53,.95) 12.81%, rgba(23,37,53,0) 48.75%);
+}
+.story-video__bg-div video {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  min-width: 100%; min-height: 100%; width: auto; height: auto; max-width: 200%; max-height: 200%;
+}
+
+/* Triangle corner decoration */
+.story-video__triangle { 
+  position: absolute; 
+  top: 0; right: 0; 
+  width: 110px; 
+  height: 146px; 
+  overflow: hidden; 
+}
+@media (max-width: 425px) {
+  .story-video__triangle { 
+  position: absolute; 
+  top: 0; right: 0; 
+  width: 56px; 
+  height: 76px; 
+  overflow: hidden; 
+}
+}
+.story-video__triangle::before {
+  content: ""; position: absolute; width: 200%; height: 200%; left: 50%; top: 50%;
+  transform: translate(-10%, -81%) rotate(45deg); background: #a1c5d3;
+}
+.story-video__read {
+  position: absolute; top: 3rem; right: 2.4rem;
+  color: #172535; font-weight: 600; font-size: 1.4rem; text-align: right; line-height: 1.5; text-decoration: underline;
+}
+
+/* Info block — overlays bottom of video */
+.story-video__in { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 0 9rem 3rem 3rem; }
+.story-video__title { color: #fff; }
+.story-video__name { font-size: 1.7rem; font-weight: 500; margin-bottom: 1rem; }
+.story-video__position { font-size: 1.2rem; line-height: 1.2; }
+
+/* Mute button */
+.story-video__mute {
+  width: 6rem; height: 6rem; position: absolute; right: 2rem; bottom: 3rem;
+  border-radius: 50%; z-index: 10; background: rgba(63,94,157,.3);
+  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.story-video__mute i { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2.4rem; color: #fff; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .story-video__in { padding: 0 2.5rem 2.5rem; }
+  .story-video__name, .story-video__position { padding-right: 4rem; }
+  .story-video__mute { width: 3.5rem; height: 3.5rem; right: 1.8rem; bottom: 1.8rem; }
+  .story-video__mute i { font-size: 1.5rem; }
+}
+@media (max-width: 767px) {
+  .front-testimonial { padding: 4rem 0 2.5rem; }
+  .front-testimonial__list { padding-top: 0; justify-content: center; }
+  .story-video { max-width: 260px; order: 1; }
+  .story-video__in { padding: 0 1.8rem 1.8rem; }
+  .story-video__name { font-size: 1.4rem; margin-bottom: .5rem; }
+  .story-video__read { font-size: 1.2rem; top: 2.2rem; right: 1.4rem; }
+  .story-item { width: 100%; margin-bottom: 4rem; margin-left: 0; padding-top: 1.7rem; overflow: hidden; }
+}
+
+/* story-item: override vape overlay colour to navy (matches site original) */
+.story-item .vape::before { background: #172535; }
+
+/* Clearfix utility — required for float-based layouts */
+.cleared::after { clear: both; content: ""; display: block; }
+
+/* ============================================================
+   fadeInUpS — slides up 5rem + fades in (used by Donation, etc.)
+   Matches original animate.css@ver=6.9.4
+   ============================================================ */
+@keyframes fadeInUpS {
+  from { opacity: 0; transform: translate3d(0, 5rem, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+.fadeInUpS.wow { opacity: 0; transform: translate3d(0, 5rem, 0); }
+.fadeInUpS.wow.is-visible {
+  animation: fadeInUpS 0.8s cubic-bezier(0.07, 0.51, 0.12, 1) forwards;
+}
+
+/* ============================================================
+   Donation
+   ============================================================ */
+.front-donation { padding: 8rem 0 6rem; position: relative; z-index: 2; }
+.front-donation__in { display: flex; flex-wrap: wrap; }
+.front-donation__in .content-entry { width: 51%; margin-right: 12%; }
+.front-donation__btn-wrap { width: 37%; }
+.front-donation__btn {
+  margin-top: -3rem; position: relative;
+  padding: 3.5rem 0; display: flex; flex-wrap: wrap; gap: 1rem;
+}
+.front-donation__btn .ia-btn { z-index: 10; }
+
+/* icon-external — inline icon after label text */
+.front-donation__btn .icon-external { font-size: 1.4rem; margin-left: 0.8rem; vertical-align: middle; }
+
+@media (max-width: 767px) {
+  .front-donation { padding: 4rem 0 3.2rem; }
+  .front-donation__in { display: block; }
+  .front-donation__in .content-entry { width: auto; margin-right: 0; }
+  .front-donation__btn { padding: 2rem 0; margin-top: 2rem; }
+  .front-donation__btn-wrap { width: auto !important; }
+}
+
+/* ============================================================
+   fadeInLeft / fadeInRight — for News decorative + list
+   ============================================================ */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translate3d(-3rem, 0, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translate3d(3rem, 0, 0); }
+  to   { opacity: 1; transform: none; }
+}
+.fadeInLeft.wow  { opacity: 0; transform: translate3d(-3rem, 0, 0); }
+.fadeInRight.wow { opacity: 0; transform: translate3d(3rem, 0, 0); }
+.fadeInLeft.wow.is-visible  { animation: fadeInLeft  0.8s cubic-bezier(0.07,0.51,0.12,1) forwards; }
+.fadeInRight.wow.is-visible { animation: fadeInRight 0.8s cubic-bezier(0.07,0.51,0.12,1) forwards; }
+
+/* ============================================================
+   Research
+   ============================================================ */
+.front-research { padding: 8rem 0 4rem; background: #fff; position: relative; z-index: 2; }
+.front-research__in {
+  padding: 8rem 3rem; display: flex; flex-wrap: wrap;
+  position: relative;
+}
+.front-research__item {
+  padding: 2.5rem 4%; box-sizing: border-box;
+  width: 33.33%; display: inline-block; vertical-align: top;
+  border-left: 1px solid #fd6a3c; position: relative;
+}
+.front-research__item .category-title { position: relative; z-index: 11; }
+.front-research__item .item-link {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 10;
+}
+.front-research__item a { color: #172535; }
+.front-research__item:nth-child(3n+1) { border-left: none; }
+.front-research__item h3 { margin-bottom: 1rem; }
+.front-research__item .content-entry p {
+  margin-bottom: 0; font-weight: 300; font-size: 1.4rem;
+}
+/* item-head: title + explore link */
+.front-research__item-head { display: flex; justify-content: space-between; align-items: center; }
+.front-research__item-head .ia-link { white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .front-research__in { padding: 4rem; }
+}
+@media (max-width: 767px) {
+  .front-research { padding: 5rem 0 2.5rem; }
+  .front-research__in { display: block; padding: 3rem 2.5rem; }
+  .front-research__item {
+    width: auto; display: block; border-left: none;
+    margin-left: 0; padding: 2rem 0; border-bottom: 1px solid #fd6a3c;
+  }
+  .front-research__item:nth-child(3) { border-bottom: none; }
+  .front-research__item.front-research__item-head {
+    border-bottom: none; display: flex;
+    justify-content: space-between; align-items: center; padding: 0;
+  }
+  .front-research__item.front-research__item-head h2 { margin-bottom: 0; }
+  .front-research__item.front-research__item-head .ia-link { white-space: nowrap; }
+}
+
+/* ============================================================
+   News
+   ============================================================ */
+.front-news { padding: 4rem 0 8rem; background: #fff; position: relative; z-index: 2; }
+.front-news .inner { position: relative; }
+
+/* Decorative SVG — absolute, right of inner left edge → left of viewport */
+.front-news__dec {
+  position: absolute; right: calc(100% + 3.5rem); top: 4rem; z-index: 20;
+}
+
+/* Head: fixed width float-left sidebar */
+.front-news__head {
+  width: 330px; float: left;
+  padding-top: 7rem; box-sizing: border-box;
+  position: relative; z-index: 20;
+}
+.front-news__head h2 { margin-bottom: 2rem; }
+
+/* Slider area: pushed right by head width */
+.front-news__list { margin-left: 330px; position: relative; }
+
+/* ── Slick structure (cloned in CSS, JS-driven in original) ──
+   .front-news__slider  → container, width overflows right
+   .slick-list          → clips vertically, overflow:visible horizontally
+   .slick-track         → the float row of all slides
+   .slick-slide         → each card, float:left width:320px
+*/
+.front-news__slider.home-slider { width: calc(100% + 120px); position: relative; }
+.front-news__slider .slick-list { overflow: visible; }           /* gốc: overflow:visible */
+.front-news__slider .slick-track {
+  display: flex;                                                  /* flex thay float để cuộn */
+  gap: 0;
+  transition: transform 0.5s cubic-bezier(0.07, 0.51, 0.12, 1);
+}
+.front-news__slider .slick-slide {
+  width: 320px; flex: 0 0 320px; margin-right: 20px;
+  box-sizing: border-box;
+}
+
+/* Arrows — position:absolute trong .front-news__slider */
+.front-news__slider .slick-arrow {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(63, 94, 157, 0.7);
+  position: absolute; border: none;
+  top: 30%; 
+  right: 0% !important;
+  transform: translate(0, -50%);
+  z-index: 12; cursor: pointer;
+  transition: background 0.35s;
+}
+.front-news__slider .slick-arrow:hover { background: rgba(63, 94, 157, 1); }
+.front-news__slider .slick-arrow.slick-disabled { pointer-events: none; opacity: 0.3; }
+
+/* Icon via icomoon ::before — icon-arr-right \e902 */
+.front-news__slider .slick-arrow::before {
+  font-family: "icomoon" !important;
+  content: "\e902";
+  font-size: 1.5rem; color: #fff;
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+/* Ripple ring */
+.front-news__slider .slick-arrow::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px; height: 50px;
+  background: rgba(63, 94, 157, 0.2); border-radius: 50%;
+  transition: background 0.35s;
+}
+.front-news__slider .slick-arrow.slick-prev { left: 1.8rem; }
+.front-news__slider .slick-arrow.slick-next {
+  left: auto; right: calc(1.8rem + 20px);
+  transform: translate(0, -50%) scaleX(-1);   /* mirror = left arrow icon */
+}
+
+/* Item card */
+.front-news__item { position: relative; }
+.front-news__item .post-link {
+  position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 10;
+}
+.front-news__item .category-title { position: relative; z-index: 11; }
+.front-news__item .h6 { transition: color 0.35s; }
+
+/* Image */
+.front-news__item-image { margin-bottom: 2rem; overflow: hidden; }
+.front-news__item-image div { width: 100%; padding-bottom: 118%; transition: transform 0.8s; }
+
+/* Hover zoom (desktop) */
+.front-news__item:hover .front-news__item-image div { transform: scale(1.1); }
+.front-news__item:hover .h6 { color: #3f5e9d; }
+
+/* Meta line */
+.front-news__meta { font-size: 1.1rem; font-weight: 300; line-height: 1.4; }
+.front-news__meta span {
+  width: 4px; height: 4px; border-radius: 50%; background: #172535;
+  display: inline-block; vertical-align: middle; margin: 0 6px;
+}
+.front-news__meta a {
+  color: #172535; transition: color 0.35s;
+  position: relative; z-index: 11;
+}
+.front-news__meta a:hover { font-weight: 600; }
+
+/* ia-margin-1 helper */
+.ia-margin-1 { margin-bottom: 1rem; }
+
+@media (max-width: 1300px) {
+  .front-news__dec { display: none; }
+}
+@media (max-width: 767px) {
+  .front-news { padding: 2.5rem 0 5rem; }
+  .front-news__dec { display: none; }
+  .front-news__head {
+    float: none; width: auto; padding-top: 0;
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 2rem;
+  }
+  .front-news__head h2 { margin-bottom: 0; }
+  .front-news__head .ia-link { white-space: nowrap; }
+  .front-news__list { margin-left: 0; }
+  .front-news__slider.home-slider { width: 100%; }
+  .front-news__slider .slick-slide { margin-right: 10px; }
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  font-size: 1.4rem; line-height: 1.5;
+  background: #172535; position: relative; z-index: 21;
+}
+
+/* Logo */
+.footer__logo { display: block; padding-top: 4.5rem; }
+.footer__logo img { height: 4.8rem; width: auto; }
+
+/* Widgets row */
+.footer__widgets {
+  display: flex; flex-wrap: wrap; width: 100%;
+  justify-content: space-between;
+  margin-bottom: 7.5rem; padding-top: 8rem;
+}
+.footer__widget {
+  padding-left: 6%; padding-right: 3%;
+  box-sizing: border-box;
+  border-left: 1px solid rgba(161, 197, 211, 0.3);
+}
+.footer__widget:first-child { border: none; padding-left: 0; }
+.footer__widget:last-child { padding-right: 0; }
+.footer__widget-quick-links { width: 25%; }
+.footer__widget-donation    { width: 40%; }
+.footer__widget-subscribe   { width: 35%; }
+
+.footer__heading {
+  font-weight: 400; font-size: 1.3rem; line-height: 1.14;
+  color: #a1c5d3; opacity: 0.7; margin-bottom: 1.3rem;
+}
+
+.footer .content-entry p {
+  font-size: 1.3rem; line-height: 1.4; color: #fff; margin-bottom: 1.2rem;
+}
+.footer .content-entry { max-width: 340px; }
+
+/* Quick links list */
+.footer__widget-quick-links ul { margin: 0; list-style: none; padding: 0; }
+.footer__widget-quick-links ul li { font-size: 1.7rem; font-weight: 500; margin-bottom: 1rem; }
+.footer__widget-quick-links ul li a { color: #fff; transition: opacity 0.35s; text-decoration: none; }
+.footer__widget-quick-links ul li a:hover { opacity: 0.7; }
+
+/* Donation: white link variant */
+.footer__widget-donation .ia-link--white i { color: #fff; }
+
+/* Bottom bar */
+.footer__bottom {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(161, 197, 211, 0.3);
+  color: #a1c5d3;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer__bottom__left  { font-size: 1rem; }
+.footer__bottom__center { text-align: center; }
+.footer__bottom__right { text-align: right; }
+
+.site-by { display: inline; }
+.site-by a { color: #a1c5d3; text-decoration: none; border-bottom: 1px solid rgba(161,197,211,.4); transition: border 0.35s; }
+.site-by a:hover { border-bottom-color: transparent; }
+
+/* Bottom links */
+.footer__bottom-links a {
+  font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1rem;
+  color: #a1c5d3; opacity: 0.7;
+  transition: color 0.35s, opacity 0.35s;
+  margin-right: 3rem; text-decoration: none;
+}
+.footer__bottom-links a:last-child { margin-right: 0; }
+.footer__bottom-links a:hover { color: #fff; opacity: 1; }
+
+/* Social icons */
+.footer__socials { margin: 0; list-style: none; padding: 0; }
+.footer__socials li { display: inline-block; vertical-align: top; margin-left: 1rem; }
+.footer__socials li a { color: #a1c5d3; opacity: 0.7; transition: color 0.35s, opacity 0.35s; text-decoration: none; }
+.footer__socials li a:hover { color: #fff; opacity: 1; }
+.footer__socials li a i { font-size: 28px; }
+
+/* Responsive */
+@media (max-width: 767px) {
+  .footer__logo { padding-top: 4.5rem; }
+  .footer__widgets { display: block; margin-bottom: 3.5rem; padding-top: 2.5rem; }
+  .footer__widget { width: auto; padding: 0; border-left: none; margin-bottom: 3rem; }
+  .footer__widget-quick-links ul li { font-size: 1.4rem; }
+  .footer__bottom { flex-wrap: wrap; }
+  .footer__bottom-links a { display: block; margin-right: 0; margin-bottom: 0.5rem; }
+  .footer__bottom__right {
+    order: 1; width: 100%; text-align: center; padding-bottom: 3rem;
+  }
+  .footer__bottom__left {
+    order: 3; width: 50%;
+    padding-left: 2rem; box-sizing: border-box; text-align: right;
+  }
+  .footer__bottom__center {
+    order: 2; width: 50%;
+    padding-right: 2rem; box-sizing: border-box; text-align: left;
+  }
+  .footer__socials li a i { font-size: 34px; }
+}
+
+
+
+

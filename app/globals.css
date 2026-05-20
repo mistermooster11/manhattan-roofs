@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@source not "../docs/**";
+
+@theme inline {
+  --color-brand-orange: #fd6a3c;
+  --color-brand-navy: #172535; /* rgb(23, 37, 53) */
+  --color-brand-sky: #a1c5d3;
+  --color-brand-blue: #3f5e9d;
+  --color-brand-gray: #f2f2f2;
+  --font-sans: var(--font-poppins), "Poppins", sans-serif;
+}
+
+@layer base {
+  :root {
+    --c-orange: #fd6a3c;
+    --c-navy: #172535;
+    --c-sky: #a1c5d3;
+    --c-blue: #3f5e9d;
+    --c-gray: #f2f2f2;
+    --c-border: #a5a5a5;
+    --scroll-width: 0px;
+    font-size: 62.5%;
+  }
+
+  html {
+    overflow-x: clip;
+  }
+
+  body {
+    font-size: 1.6rem;
+    font-family: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+    color: var(--c-navy);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  a { text-decoration: none; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  img, svg, video { display: block; max-width: 100%; }
+  h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 600; margin: 0; }
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url("/fonts/icomoon.woff") format("woff"),
+       url("/fonts/icomoon.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* fromLeftRoll — icon animation on ia-link--arrow hover */
+@keyframes fromLeftRoll {
+  0%   { transform: translate(0, 0);      opacity: 1; }
+  50%  { transform: translate(100%, 0);   opacity: 1; }
+  51%  { transform: translate(-100%, 0);  opacity: 0; }
+  52%  { transform: translate(-100%, 0);  opacity: 1; }
+  100% { transform: translate(0, 0);      opacity: 1; }
+}
+
+/* Icon definitions */
+.icon-arr-down:before    { content: "\e900"; }
+.icon-arr-left:before    { content: "\e901"; }
+.icon-arr-right:before   { content: "\e902"; }
+.icon-arr-up:before      { content: "\e903"; }
+.icon-arrow-right:before { content: "\e904"; }
+.icon-books:before       { content: "\e905"; }
+.icon-buildings:before   { content: "\e906"; }
+.icon-calendar:before    { content: "\e907"; }
+.icon-check:before       { content: "\e908"; }
+.icon-close:before       { content: "\e909"; }
+.icon-edit:before        { content: "\e90a"; }
+.icon-facebook:before    { content: "\e90b"; }
+.icon-file:before        { content: "\e90c"; }
+.icon-globe:before       { content: "\e90d"; }
+.icon-heart:before       { content: "\e90e"; }
+.icon-instagram:before   { content: "\e90f"; }
+.icon-linked-in:before   { content: "\e910"; }
+.icon-map:before         { content: "\e911"; }
+.icon-marker:before      { content: "\e912"; }
+.icon-message:before     { content: "\e913"; }
+.icon-mute:before        { content: "\e914"; }
+.icon-order:before       { content: "\e915"; }
+.icon-paper-plan:before  { content: "\e916"; }
+.icon-search:before      { content: "\e917"; }
+.icon-tiktok:before      { content: "\e918"; }
+.icon-twitter:before     { content: "\e919"; }
+.icon-unmute:before      { content: "\e91a"; }
+.icon-user:before        { content: "\e91b"; }
+.icon-verify:before      { content: "\e91c"; }
+.icon-youtube:before     { content: "\e91d"; }
+.icon-nccer:before       { content: "\e91e"; }
+.icon-clock:before       { content: "\e91f"; }
+.icon-logo:before        { content: "\e920"; }
+.icon-cross:before       { content: "\e921"; }
+.icon-menu:before        { content: "\e922"; }
+.icon-assesment:before   { content: "\e923"; }
+.icon-checkbox:before    { content: "\e924"; }
+.icon-download:before    { content: "\e925"; }
+.icon-external:before    { content: "\e926"; }
+.icon-info:before        { content: "\e927"; }
+.icon-language:before    { content: "\e928"; }
+.icon-translate:before   { content: "\e929"; }
+.icon-close-light:before { content: "\e92a"; }
+.icon-filter:before      { content: "\e92b"; }
+.icon-mail:before        { content: "\e92c"; }
+.icon-play:before        { content: "\e92d"; }
+.icon-locate:before      { content: "\e92e"; }
+.icon-doc:before         { content: "\e92f"; }
+.icon-link:before        { content: "\e930"; }
+.icon-powerpoint:before  { content: "\e931"; }
+.icon-sub-page:before    { content: "\e932"; }
+.icon-print-converted:before { content: "\e933"; }
+.icon-arrow-left-btn:before  { content: "\e934"; }
+.icon-pause:before       { content: "\e935"; }
+.icon-arrow-right-btn:before { content: "\e334"; }
+
+/* Layout utilities, typography, components → styles/homepage.css */
+
+@media (max-width: 767px) {
+  :root { font-size: 55%; }
+}
