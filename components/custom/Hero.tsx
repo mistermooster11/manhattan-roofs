@@ -85,7 +85,7 @@ export default function Hero() {
                   style={{
                     width: '200%',
                     height: '200%',
-                    border: '1px dashed rgba(161,197,211,.2)',
+                    border: '1px dashed rgba(239,239,239,.2)',
                     borderRadius: '50%',
                   }}
                 />

@@ -46,7 +46,7 @@ export default function Announcements() {
                   display: 'block',
                   width: '100%',
                   height: '100%',
-                  backgroundColor: '#101d2b',
+                  backgroundColor: '#5A0006',
                 }}
               />
               {/* [TODO: Replace with Manhattan Roofing job site or completed roof photo] */}

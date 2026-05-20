@@ -19,7 +19,7 @@ const HeaderSearch = () => {
 
                  {/* Search overlay — position fixed, full width */}
             {searchOpen && (
-                <div className="fixed top-[8rem]  right-20 z-[9999] bg-[#172535] px-[5%] box-border">
+                <div className="fixed top-[8rem]  right-20 z-[9999] bg-[#810008] px-[5%] box-border">
                     <form onSubmit={(e) => e.preventDefault()} className="relative">
                         <input
                             type="search"

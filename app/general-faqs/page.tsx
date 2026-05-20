@@ -107,7 +107,7 @@ export default function FAQsPage() {
                     <span
                       style={{
                         fontSize: "2rem",
-                        color: "#101d2b",
+                        color: "#5A0006",
                         flexShrink: 0,
                         transform: openId === item.id ? "rotate(45deg)" : "rotate(0deg)",
                         transition: "transform 0.2s ease",

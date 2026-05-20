@@ -8,7 +8,7 @@ interface TopnavProps {
 
 const Topnav = ({ onMobileMenuClick }: TopnavProps) => {
     return (
-        <div className="bg-[#101d2b] border-b border-[rgba(161,197,211,.3)] w-full">
+        <div className="bg-[#5A0006] border-b border-[rgba(239,239,239,.3)] w-full">
             <div className="inner inner-header flex flex-row items-center justify-between min-h-[4.4rem] p-0">
 
                 {/* Mobile logo */}

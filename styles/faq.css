@@ -35,7 +35,7 @@
   padding: 3rem 7rem 3rem 6.5rem;
   position: relative;
   display: block;
-  color: #172535;
+  color: #252525;
   cursor: pointer;
   transition: color .35s;
 }
@@ -45,10 +45,10 @@
   right: 6rem;
   transform: translate(-50%, -50%);
   font-size: 2rem;
-  color: #fd6a3c;
+  color: #CF0013;
   transition: transform .35s;
 }
-.accordion-title-flex.current { color: #3f5e9d; }
+.accordion-title-flex.current { color: #810008; }
 .accordion-title-flex.current i { transform: translate(-50%, -50%) scaleY(-1); }
 
 /* ── 6. Accordion info (collapsible) ── */
@@ -73,7 +73,7 @@
   vertical-align: middle;
 }
 .accordion-info-flex table thead th {
-  background: #172535;
+  background: #810008;
   color: #fff;
   font-weight: 600;
 }

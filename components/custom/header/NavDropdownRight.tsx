@@ -65,7 +65,7 @@ const NavDropdownRight:React.FC<NavDropdownLeftProps> = ({ dd }) => {
       {dd.quickLinks && (
         <div className="w-[32%] box-border py-[4rem] px-[2.5rem] bg-[#f2f2f2]">
           {/* nav-dropdown__sub-title */}
-          <div className="text-[1rem] text-[#172535] tracking-[.15rem] uppercase mb-[2.5rem]">
+          <div className="text-[1rem] text-[#252525] tracking-[.15rem] uppercase mb-[2.5rem]">
             Quick Links
           </div>
           {/* nav-dropdown__extramenu */}
@@ -77,7 +77,7 @@ const NavDropdownRight:React.FC<NavDropdownLeftProps> = ({ dd }) => {
                   href={ql.href}
                   target={ql.external ? "_blank" : "_self"}
                   rel={ql.external ? "noopener" : undefined}
-                  className="group/ql relative inline-block align-top ml-[2.2rem] text-[#172535] text-[1.4rem] font-semibold leading-[1.5] no-underline"
+                  className="group/ql relative inline-block align-top ml-[2.2rem] text-[#252525] text-[1.4rem] font-semibold leading-[1.5] no-underline"
                 >
                   {/* ia-link--arrow icon — Lucide SVG, fromLeftRoll on hover */}
                   {(() => {
@@ -89,7 +89,7 @@ const NavDropdownRight:React.FC<NavDropdownLeftProps> = ({ dd }) => {
                     ) : null;
                   })()}
                   {/* span — border-bottom turns orange on hover */}
-                  <span className="border-b border-[#172535] transition-colors duration-350 group-hover/ql:border-brand-orange ml-2">
+                  <span className="border-b border-[#810008] transition-colors duration-350 group-hover/ql:border-brand-orange ml-2">
                     {ql.label}
                   </span>
                 </a>

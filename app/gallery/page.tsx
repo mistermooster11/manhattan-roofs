@@ -74,7 +74,7 @@ export default function GalleryPage() {
                     backgroundImage: `url(${item.image})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                    backgroundColor: "#101d2b",
+                    backgroundColor: "#5A0006",
                     borderRadius: "4px",
                     marginBottom: "1rem",
                   }}

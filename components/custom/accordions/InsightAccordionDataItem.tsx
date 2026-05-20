@@ -40,7 +40,7 @@ const InsightAccordionDataItem: React.FC<InsightAccordionDataItemProps> = ({
             fontWeight: 700,
             fontSize: '2rem',
             marginBottom: '1.5rem',
-            color: 'var(--color-brand-navy)',
+            color: '#252525',
           }}
         >
           How We Handle It
@@ -52,7 +52,7 @@ const InsightAccordionDataItem: React.FC<InsightAccordionDataItemProps> = ({
             className="p3"
             style={{
               marginBottom: '1.2rem',
-              color: 'var(--color-brand-navy)',
+              color: '#252525',
               lineHeight: 1.6,
             }}
           >

@@ -35,7 +35,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
         aria-hidden={!isOpen}
       >
         {/* .mobile-navi__head */}
-        <div className="relative px-[2.4rem] py-[1rem] flex items-center min-h-[54px] border-b border-[rgba(161,197,211,.3)]">
+        <div className="relative px-[2.4rem] py-[1rem] flex items-center min-h-[54px] border-b border-[rgba(239,239,239,.3)]">
           <Link href="/" onClick={onClose} aria-label="NCCER">
             <img src="/logos/logo-long.svg" alt="NCCER" className="block h-[3.2rem]" />
           </Link>
@@ -84,7 +84,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
           {/* Secondary links — Donate / Support / Sign In */}
           {/* border-top divider + column layout matching .mobile-navi__in > ul */}
-          <div className="relative pt-12 before:content-[''] before:absolute before:w-screen before:left-1/2 before:top-0 before:-translate-x-1/2 before:border-t before:border-[rgba(161,197,211,.3)]">
+          <div className="relative pt-12 before:content-[''] before:absolute before:w-screen before:left-1/2 before:top-0 before:-translate-x-1/2 before:border-t before:border-[rgba(239,239,239,.3)]">
             <SocialLinks layout="column" onClick={onClose} />
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           {activeItem && (
             <>
               {/* .menu-back */}
-              <div className="relative pb-[1.2rem] mb-8 after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-screen after:-translate-x-1/2 after:border-b after:border-[rgba(161,197,211,.3)]">
+              <div className="relative pb-[1.2rem] mb-8 after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-screen after:-translate-x-1/2 after:border-b after:border-[rgba(239,239,239,.3)]">
                 <button
                   onClick={() => setActiveSubNav(null)}
                   className="inline-flex items-center gap-[0.6rem] text-white text-[1.2rem] font-medium bg-transparent border-0 cursor-pointer p-0 pl-[1.2rem] relative"
@@ -112,7 +112,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
               </div>
 
               {/* nav-dropdown__left */}
-              <div className="pt-8 pb-4 relative after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-screen after:-translate-x-1/2 after:border-b after:border-[rgba(161,197,211,.3)]">
+              <div className="pt-8 pb-4 relative after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-screen after:-translate-x-1/2 after:border-b after:border-[rgba(239,239,239,.3)]">
                 {/* nav-dropdown__title */}
                 <Link
                   href={activeItem.dropdown!.titleHref}
