@@ -3,7 +3,7 @@ import ProgramsHero from "@/components/custom/programs/ProgramsHero";
 import ProgramsOverview from "@/components/custom/programs/ProgramsOverview";
 import ProgramsAccordion from "@/components/custom/programs/ProgramsAccordion";
 import ProgramsPartners from "@/components/custom/programs/ProgramsPartners";
-import { programsData } from "@/data/programs";
+import programsData from "@/data/programs";
 
 export default function ProgramsPage() {
   return (
