@@ -108,10 +108,9 @@ export default function Hero() {
                   visible ? 'h-full scale-100' : 'h-0 scale-[1.2]',
                 ].join(' ')}
               >
-                {/* [TODO: Replace with Manhattan Roofing hero image — completed roof or job site photo] */}
                 <img
-                  src="https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg"
-                  alt="Manhattan Roofing — Flat roof installation in NYC"
+                  src="/images/roofer-installing-shingles-aerial-view.jpg"
+                  alt="Manhattan Roofing — roofer installing shingles on NYC residential roof"
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto max-w-[200%]"
                   style={{ objectFit: 'cover' }}
                 />

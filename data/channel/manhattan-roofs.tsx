@@ -16,8 +16,7 @@ const manhattanRoofs: ChannelPageData = {
     title:           "Manhattan's Trusted Roofing Specialists",
     breadcrumbLabel: "About Us",
     imageBg:
-      "url(https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg) no-repeat center center / cover",
-    // [TODO: Replace with confirmed Manhattan Roofing hero/team photo URL]
+      "url(/images/roofing-crew-aerial-safety-harness-installation.jpg) no-repeat center center / cover",
     description: (
       <p>
         Manhattan Roofing is an owner-operated roofing company serving Manhattan,
@@ -113,8 +112,7 @@ const manhattanRoofs: ChannelPageData = {
   },
 
   flexFeature: {
-    imageSrc:    "/images/hero-bg.jpg",
-    // [TODO: Replace with Manhattan Roofing job site or completed roof photo]
+    imageSrc:    "/images/roofer-inspecting-asphalt-shingles-closeup.jpg",
     title:       "Need a Free Estimate?",
     body: (
       <p>

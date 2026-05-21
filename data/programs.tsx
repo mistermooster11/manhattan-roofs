@@ -39,8 +39,7 @@ const programsData: ProgramsPageData = {
   hero: {
     title: "Our Roofing Services",
     bgImage:
-      "url(https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg) no-repeat center center / cover",
-    // [TODO: Replace with confirmed Manhattan Roofing services page hero photo]
+      "url(/images/roofer-installing-shingles-aerial-view.jpg) no-repeat center center / cover",
     description: (
       <p>
         Manhattan Roofing provides flat roof installation and repair, shingle

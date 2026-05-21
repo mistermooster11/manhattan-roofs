@@ -7,23 +7,20 @@ import CraftHero from "@/components/custom/craft-catalog/CraftHero";
 const galleryItems = [
   {
     label: "Flat Roof Installation — Manhattan Multi-Family Building",
-    image: "/images/IMG_9688-1024x682.jpg",
-    // [TODO: Replace with real Manhattan Roofing flat roof installation photo]
+    image: "/images/worker-applying-roof-coating-roller.jpg",
   },
   {
     label: "Flat Roof Repair — NYC Commercial Property",
-    image: "/images/IMG_9750-1024x683.jpg",
-    // [TODO: Replace with real Manhattan Roofing flat roof repair photo]
+    image: "/images/chimney-inspection-repair-rooftop-worker.jpg",
   },
   {
     label: "Shingle Roof Replacement — NYC Townhouse",
-    image: "/images/IMG_9688-1024x682.jpg",
-    // [TODO: Replace with real Manhattan Roofing shingle roof photo]
+    image: "/images/modern-home-slate-roof-mountain-valley.jpg",
   },
   {
     label: "Skylight Installation — Manhattan Brownstone",
-    image: "/images/IMG_9750-1024x683.jpg",
-    // [TODO: Replace with real Manhattan Roofing skylight photo]
+    image: "/images/roofing-crew-aerial-safety-harness-installation.jpg",
+    // [TODO: Replace with real Manhattan Roofing skylight photo when available]
   },
 ];
 
@@ -36,7 +33,7 @@ export default function GalleryPage() {
     <main className="pt-76 max-[1150px]:pt-[6.2rem]">
       <CraftHero
         title="Our Work"
-        bgImage="https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg"
+        bgImage="/images/roofing-crew-working-residential-roof-installation.jpg"
         breadcrumbs={[{ label: "Gallery" }]}
       />
 

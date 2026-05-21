@@ -39,7 +39,7 @@ export default function Announcements() {
               <span
                 style={{
                   backgroundImage:
-                    'url(https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg)',
+                    'url(/images/worker-applying-roof-coating-roller.jpg)',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: '50% 50%',
                   backgroundSize: 'cover',
@@ -49,7 +49,6 @@ export default function Announcements() {
                   backgroundColor: '#5A0006',
                 }}
               />
-              {/* [TODO: Replace with Manhattan Roofing job site or completed roof photo] */}
             </div>
           </div>
 

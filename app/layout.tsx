@@ -39,8 +39,7 @@ export const metadata: Metadata = {
       "Owner-operated NYC roofing. Flat roofs, shingle roofs, skylights, storm damage. Free on-site estimates. Call (212) 495-9840.",
     images: [
       {
-        // [TODO: Add 1200x630 OG image for social sharing — replace this placeholder]
-        url: "https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg",
+        url: "/images/roofer-installing-shingles-aerial-view.jpg",
         width: 1024,
         height: 683,
         alt: "Manhattan Roofing — Flat roof installation in NYC",
