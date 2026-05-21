@@ -38,7 +38,7 @@ export default function ContactPage() {
       {/* ── Hero ── */}
       <CraftHero
         title="Contact Us"
-        bgImage="https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg"
+        bgImage="/images/roofer-installing-shingles-aerial-view.jpg"
         breadcrumbs={[{ label: "Contact Us" }]}
       />
 

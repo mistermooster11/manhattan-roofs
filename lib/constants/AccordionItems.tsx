@@ -5,8 +5,7 @@ export const accordionItems = [
   {
     id: "accordion-0",
     title: "Flat Roof Repair",
-    image: "/images/hero-bg.jpg",
-    // [TODO: Replace with Manhattan Roofing flat roof repair job photo]
+    image: "/images/worker-applying-roof-coating-roller.jpg",
     description:
       "Membrane failures, open seams, failed flashing — Manhattan Roofing tracks flat roof leaks to their source and fixes them right. No subcontractors. Free on-site estimates. All repair work is warrantied.",
     learnHref: "/craft-catalog/flat-roof-repair",
@@ -20,8 +19,7 @@ export const accordionItems = [
   {
     id: "accordion-1",
     title: "Flat Roof Installation",
-    image: "/images/hero-bg.jpg",
-    // [TODO: Replace with Manhattan Roofing flat roof installation job photo]
+    image: "/images/roofing-crew-working-residential-roof-installation.jpg",
     description:
       "Full flat roof replacements on Manhattan, Brooklyn, Queens, and Bronx buildings. George's crew handles tear-offs, deck repairs, and full system installation — modified bitumen, EPDM, TPO — with free estimates and warrantied work.",
     learnHref: "/craft-catalog/flat-roof-installation",
@@ -35,8 +33,7 @@ export const accordionItems = [
   {
     id: "accordion-2",
     title: "Skylight Work",
-    image: "/images/hero-bg.jpg",
-    // [TODO: Replace with Manhattan Roofing skylight installation photo]
+    image: "/images/modern-metal-roof-dormers-wooden-accents.jpg",
     description:
       "Skylight installations and leak repairs on flat and pitched roofs. Proper curb flashing is what separates a skylight that lasts from one that leaks — Manhattan Roofing does it right the first time.",
     learnHref: "/craft-catalog/skylight-installation-repair",
@@ -50,8 +47,7 @@ export const accordionItems = [
   {
     id: "accordion-3",
     title: "Storm Damage Repair",
-    image: "/images/hero-bg.jpg",
-    // [TODO: Replace with Manhattan Roofing storm damage repair photo]
+    image: "/images/roofing-crew-installing-shingles-on-site.jpg",
     description:
       "Wind and storm damage can compromise a flat or shingle roof without being visible from street level. Manhattan Roofing inspects, documents, and repairs storm damage — with the paperwork your insurance adjuster needs.",
     learnHref: "/craft-catalog/storm-damage-repair",

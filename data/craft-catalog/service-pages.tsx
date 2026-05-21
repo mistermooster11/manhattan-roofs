@@ -5,6 +5,7 @@ export type ServiceNavItem = { href: string; label: string };
 export type ServicePageData = {
   title: string;
   bgColor: string;
+  bgImage: string;
   navItems: ServiceNavItem[];
   overviewContent: ReactNode;
   overviewQuickLinks: { label: string; href: string }[];
@@ -17,6 +18,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "flat-roof-installation": {
     title: "Flat Roof Installation",
     bgColor: "#1a2332",
+    bgImage: "/images/worker-applying-roof-coating-roller.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#what_we_install",  label: "What We Install"  },
@@ -103,6 +105,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "flat-roof-repair": {
     title: "Flat Roof Repair",
     bgColor: "#1a2332",
+    bgImage: "/images/roofer-inspecting-asphalt-shingles-closeup.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#common_issues",    label: "Common Issues"    },
@@ -186,6 +189,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "shingle-roof-installation": {
     title: "Shingle Roof Installation & Replacement",
     bgColor: "#1a2332",
+    bgImage: "/images/roofers-installing-shingles-teamwork.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#shingle_types",    label: "Shingle Types"    },
@@ -271,6 +275,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "roof-repair": {
     title: "Roof Repair & Leak Detection",
     bgColor: "#1a2332",
+    bgImage: "/images/chimney-inspection-repair-rooftop-worker.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#leak_detection",   label: "Leak Detection"   },
@@ -355,6 +360,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "storm-damage-repair": {
     title: "Wind & Storm Damage Repair",
     bgColor: "#1a2332",
+    bgImage: "/images/roofing-crew-aerial-safety-harness-installation.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#storm_damage",     label: "Storm Damage"     },
@@ -438,6 +444,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "skylight-installation-repair": {
     title: "Skylight Installation & Repair",
     bgColor: "#1a2332",
+    bgImage: "/images/roofer-installing-metal-roofing-panels-closeup.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#installation",     label: "Installation"     },
@@ -524,6 +531,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "roof-gutter-cleaning": {
     title: "Roof & Gutter Cleaning",
     bgColor: "#1a2332",
+    bgImage: "/images/worker-cleaning-gutters-ladder-autumn.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#why_it_matters",   label: "Why It Matters"   },
@@ -607,6 +615,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "roof-maintenance-plans": {
     title: "Roof Maintenance Plans",
     bgColor: "#1a2332",
+    bgImage: "/images/roofing-crew-installing-shingles-aerial-view.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#what_included",    label: "What's Included"  },
@@ -690,6 +699,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "roof-attic-inspection": {
     title: "Roof & Attic Inspection",
     bgColor: "#1a2332",
+    bgImage: "/images/close-up-black-asphalt-roof-shingles-texture.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#what_we_check",    label: "What We Check"    },
@@ -777,6 +787,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "energy-insulation": {
     title: "Energy & Insulation Solutions",
     bgColor: "#1a2332",
+    bgImage: "/images/modern-home-slate-roof-mountain-valley.jpg",
     navItems: [
       { href: "#overview",         label: "Overview"         },
       { href: "#insulation_types", label: "Insulation Types" },
