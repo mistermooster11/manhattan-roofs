@@ -1,24 +1,13 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
-import "@/styles/homepage.css";
-import "@/styles/contact.css";
-import "@/styles/channel.css";
-import "@/styles/faq.css";
-import "@/styles/craft-catalog.css";
-import "@/styles/programs.css";
+import "@/styles/common.css";
 import Header from "@/components/custom/header/Header";
-import Footer from "@/components/custom/Footer";
+import Footer from "@/components/custom/footer/Footer";
+import PageTransition from "@/components/custom/page-transition/PageTransition";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-// [TODO: Replace with production domain when site goes live]
-const SITE_URL = "https://manhattanroofing.com";
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: {
@@ -27,72 +16,44 @@ export const metadata: Metadata = {
   },
   description:
     "Manhattan Roofing — owner-operated roofing specialists with 30+ years of construction experience. Flat roofs, shingle roofs, skylights, storm damage repair. Free on-site estimates. Call (212) 495-9840.",
-  metadataBase: new URL(SITE_URL),
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE_URL,
     siteName: "Manhattan Roofing",
     title: "Manhattan Roofing | Roofing Specialists Serving Manhattan & All NYC Boroughs",
     description:
-      "Owner-operated NYC roofing. Flat roofs, shingle roofs, skylights, storm damage. Free on-site estimates. Call (212) 495-9840.",
-    images: [
-      {
-        url: "/images/roofer-installing-shingles-aerial-view.jpg",
-        width: 1024,
-        height: 683,
-        alt: "Manhattan Roofing — Flat roof installation in NYC",
-      },
-    ],
+      "Owner-operated roofing specialists with 30+ years of construction experience. Flat roofs, shingle roofs, skylights, storm damage repair. Free on-site estimates. Call (212) 495-9840.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manhattan Roofing | Roofing Specialists Serving Manhattan & All NYC Boroughs",
+    title: "Manhattan Roofing | NYC Roofing Specialists",
     description:
-      "Owner-operated NYC roofing. Flat roofs, shingle roofs, skylights & storm damage. Free on-site estimates. Call (212) 495-9840.",
-    images: ["https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+      "Owner-operated roofing specialists with 30+ years of construction experience. Serving Manhattan & all NYC boroughs. Free estimates. (212) 495-9840.",
   },
 };
 
-const localBusinessSchema = {
+const jsonLd = {
   "@context": "https://schema.org",
   "@type": "RoofingContractor",
   name: "Manhattan Roofing",
-  url: SITE_URL,
   telephone: "+12124959840",
-  // [TODO: Add Manhattan Roofing email address]
-  image: "https://manhattanroofs.com/wp-content/uploads/flat-roof-nyc.jpg",
+  description:
+    "Owner-operated roofing specialists with 30+ years of construction experience serving Manhattan and all five NYC boroughs.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Manhattan",
+    addressLocality: "New York",
     addressRegion: "NY",
     addressCountry: "US",
   },
-  // [TODO: Confirm business hours with client — update opens/closes accordingly]
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-    opens: "08:00",
-    closes: "18:00",
-  },
   areaServed: [
-    { "@type": "City", name: "Manhattan" },
-    { "@type": "City", name: "Brooklyn" },
-    { "@type": "City", name: "Queens" },
-    { "@type": "City", name: "The Bronx" },
+    "Manhattan, NY",
+    "Brooklyn, NY",
+    "Queens, NY",
+    "The Bronx, NY",
+    "Staten Island, NY",
   ],
   priceRange: "$$",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    reviewCount: "30",
-  },
+  openingHours: "Mo-Su 07:00-20:00",
 };
 
 export default function RootLayout({
@@ -101,20 +62,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} h-full antialiased`}
-    >
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <head>
-        <Script
-          id="local-business-schema"
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans">
+      <body>
+        <PageTransition />
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
