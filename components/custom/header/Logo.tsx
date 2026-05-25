@@ -24,8 +24,8 @@ const Logo = ({ isFixed = false, isLoaded = false }: LogoProps) => {
         <span className="sr-only">Manhattan Roofing</span>
         <img
           className="w-full"
-          src="/logos/logo-large.svg"
-          alt="Logo of NCCER"
+          src="/logos/manhattan-roofing_light-background.png"
+          alt="Manhattan Roofing Logo"
         />
       </Link>
     </div>
