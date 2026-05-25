@@ -23,7 +23,7 @@ const HeaderSearch = () => {
                     <form onSubmit={(e) => e.preventDefault()} className="relative">
                         <input
                             type="search"
-                            placeholder="Search NCCER..."
+                            placeholder="Search..."
                             autoFocus
                             className="bg-transparent m-0 w-full md:w-[400px] h-[5rem] text-white text-[1.2rem] px-[5.2rem] pl-[3.2rem] outline-none box-border border border-brand-orange placeholder:text-white/50"
                         />

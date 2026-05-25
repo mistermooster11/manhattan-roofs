@@ -21,7 +21,7 @@ const Logo = ({ isFixed = false, isLoaded = false }: LogoProps) => {
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[50px]",
         ].join(" ")}
       >
-        <span className="sr-only">NCCER</span>
+        <span className="sr-only">Manhattan Roofing</span>
         <img
           className="w-full"
           src="/logos/logo-large.svg"
